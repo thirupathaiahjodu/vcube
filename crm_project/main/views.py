@@ -49,7 +49,7 @@ def login_view(request):
                 login(request, valid_user)
 
                 if valid_user.is_superuser:
-                    return redirect('')
+                    return redirect('student_course_list')
 
                 elif valid_user.is_staff:
                     return redirect('')
