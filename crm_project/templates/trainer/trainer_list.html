@@ -1,0 +1,69 @@
+<!-- trainer_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Add this CSS to your existing stylesheet or create a new one */
+
+.trainer-list-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.trainer-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.trainer-list li {
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.trainer-list li strong {
+  font-size: 1.2em;
+}
+
+.details-link {
+  display: inline-block;
+  margin-left: 10px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}
+
+.create-trainer-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.create-trainer-btn:hover {
+  background-color: #45a049;
+  text-decoration: none;
+}
+
+</style>
+  <div class="trainer-list-container">
+    <h2>Trainers</h2>
+    <ul class="trainer-list">
+      {% for trainer in trainers %}
+        <li>
+          <strong>{{ trainer.name }}</strong> - {{ trainer.specialization }}
+          <a class="details-link" href="{% url 'get_trainer_by_id' trainer.id %}">Details</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="create-trainer-btn" href="{% url 'create_trainer' %}">Create Trainer</a>
+  </div>
+{% endblock %}

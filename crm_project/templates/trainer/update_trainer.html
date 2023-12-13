@@ -1,0 +1,17 @@
+<!-- update_trainer.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Edit Trainer - {{ trainer.name }}</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Trainer</button>
+  </form>
+  {% if trainer.id %}
+  <a href="{% url 'get_trainer_by_id' trainer.id %}">Back to Trainer Detail</a>
+  {% endif %}
+
+
+{% endblock %}

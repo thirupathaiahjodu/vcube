@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Batch Details - Batch {{ batch.batch_number }}</h2>
+  <p>Batch Timings: {{ batch.batch_timings }}</p>
+  <p>Start Date: {{ batch.start_date }}</p>
+  <p>End Date: {{ batch.end_date }}</p>
+  <p>Course: {{ batch.course }}</p>
+  
+  <!-- Link to Update Batch -->
+  <a href="{% url 'update_batch' batch_id=batch.pk %}">Update Batch</a>
+
+
+  <!-- Link to Delete Batch -->
+  <a href="{% url 'delete_batch' batch_id=batch.pk %}">Delete Batch</a>
+
+  <a href="{% url 'get_all_batches' %}">Back to Batch List</a>
+{% endblock %}
+

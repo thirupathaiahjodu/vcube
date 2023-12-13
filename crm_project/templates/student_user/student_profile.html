@@ -1,0 +1,297 @@
+{% extends 'student_user/student_home.html' %}
+
+{% block first %}
+
+<style>
+    /* Add your custom styles here */
+    .section-content {
+        display: none;
+    }
+
+    .section-content.active {
+        display: block;
+    }
+
+    .card {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        color: #007bff;
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .card-img {
+        text-align: center;
+    }
+
+    .card-img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .card-body {
+        color: #495057;
+    }
+
+    .card-body h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .section-links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .section-link {
+        margin-right: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .test-attendance,
+    .lab-attendance,
+    .soft-skills-stats,
+    .interview-attendance,
+    .attendance-attendance {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #28a745; /* Green color for positive */
+    }
+
+    .no-tests {
+        color: #dc3545; /* Red color for negative */
+    }
+
+    /* Add styles for other sections here */
+
+</style>
+<head>
+    <title>{{ student.user.username }} Details</title>
+</head>
+<body>
+    <div style="float: left; width: 40%;">
+        <div class="card">
+            <h2 class="card-title text-center"><span>Student Name:</span> {{ student.user.username }}</h2>
+            <div class="card-img">
+                {% if student.image %}
+                    <!-- Add the image tag with the appropriate source -->
+                    <img src="{{ student.image.url }}" alt="{{ student.user.username }} Image" style="max-width: 100%; height: auto;">
+                {% else %}
+                    <!-- Display an alternative content if no image exists -->
+                    <p>No image available</p>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <h5><span>Admission Number:</span> {{ student.admission_number }}</h5>
+                <h5><span>Joining Date:</span> {{ student.joining_date }}</h5>
+                <h5><span>Batch:</span> {{ student.batch }}</h5>
+                <h5><span>Actual Fees:</span> {{ student.actual_fees }}</h5>
+                <h5><span>Fees Paid:</span> {{ student.fees_paid }}</h5>
+                <h5><span>Course:</span> {{ student.course }}</h5>
+                <h5>
+                    
+                    <span>{% if student.resume %}
+                        <!-- Display a link to the resume if it exists -->
+                            <a href="{{ student.resume.url }}" target="_blank" class="btn btn-info" download="">View Resume</a>
+                            {% else %}
+                            <!-- Display a message if no resume is available -->
+                                <p>No resume available</p>
+                             {% endif %}
+                    </span>
+                </h5>
+                <a href="{% url 'update_profile' %}" class="btn btn-primary">Update Profile</a>
+                <a class="elementor-size-small" href="{% url 'change_password' %}">change_password</a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div style="float: right; width: 55%;">
+        <h2 class="text-center">Details</h2>
+        <div class="section-links">
+            <a href="#" class="section-link" data-section="tests">Tests</a>
+            <a href="#" class="section-link" data-section="attendance">Attendance</a>
+            <a href="#" class="section-link" data-section="labs">Labs</a>
+            <a href="#" class="section-link" data-section="soft_skills">Soft Skills</a>
+            <a href="#" class="section-link" data-section="interviews">Interviews</a>
+        </div>
+
+        <!-- Attendance Section -->
+        <div id="attendance" class="section-content">
+            <h3>Attendance Details</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Present</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for att in attendance %}
+                        <tr>
+                            <td>{{ att.date }}</td>
+                            <td>{{ att.present }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="attendance-attendance">
+                <h3>Attendance Details</h3>
+                <p>Total Attendance: {{ attendance_total_present }} / {{ attendance_total_days }}</p>
+                <p>Attendance Ratio: {{ attendance_ratio }}</p>
+            </div>
+            
+        </div>
+
+        <!-- Tests Section -->
+        <div id="tests" class="section-content active">
+            <h3>Test Details</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Test date</th>
+                        <th>Present</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for test in tests %}
+                        <tr>
+                            <td>{{ test.test_date }}</td>
+                            <td>{{ test.present }}</td>
+                            <td>{{ test.marks }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="test-attendance">
+                <p>Total Test Marks: {{ total_test_marks }} / {{ total_max_test_marks }}</p>
+                <p>Test Attendance Ratio: {{ test_attendance_ratio }}</p>
+            </div>
+            
+        </div>
+
+        <!-- Labs Section -->
+        <div id="labs" class="section-content">
+            <h3>Lab Details</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Present</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lab_item in labs %}
+                        <tr>
+                            <td>{{ lab_item.date }}</td>
+                            <td>{{ lab_item.present }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="lab-attendance">
+                <h3>Lab Details</h3>
+                <p>Total Lab Attendance: {{ lab_total_present }} / {{ lab_total_days }}</p>
+                <p>Lab Attendance Ratio: {{ lab_ratio }}</p>
+            </div>
+        </div>
+
+        <!-- Soft Skills Section -->
+        <div id="soft_skills" class="section-content">
+            <h3>Soft Skills Details</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Present</th>
+                        <th>Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for soft_skill in soft_skills %}
+                        <tr>
+                            <td>{{ soft_skill.date }}</td>
+                            <td>{{ soft_skill.present }}</td>
+                            <td>{{ soft_skill.topic }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="soft-skills-stats">
+                <h3>Soft Skills Details</h3>
+                <p>Total Soft Skills Attendance: {{ softskills_total_present }} / {{ softskills_total_days }}</p>
+                <p>Soft Skills Attendance Ratio: {{ softskills_ratio }}</p>
+            </div>
+        </div>
+
+        <!-- Interviews Section -->
+        <div id="interviews" class="section-content">
+            <h3>Interview Details</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Present</th>
+                        <th>Performance</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for interview in interviews %}
+                        <tr>
+                            <td>{{ interview.interview_date }}</td>
+                            <td>{{ interview.present }}</td>
+                            <td>{{ interview.performance }}</td>
+                            <td>{{ interview.marks }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="interview-attendance">
+                <p>Total Interview Marks: {{ total_interview_marks }} / {{ interviews.count }}</p>
+                <p>Interview Attendance Ratio: {{ interview_attendance_ratio }}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var sectionLinks = document.querySelectorAll('.section-link');
+            sectionLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var sectionName = link.getAttribute('data-section');
+                    showSection(sectionName);
+                });
+            });
+
+            function showSection(sectionName) {
+                var sectionContents = document.querySelectorAll('.section-content');
+                sectionContents.forEach(function(content) {
+                    content.style.display = 'none';
+                });
+
+                var selectedSection = document.getElementById(sectionName);
+                if (selectedSection) {
+                    selectedSection.style.display = 'block';
+                }
+            }
+
+            // Initially hide all sections except the first one (tests)
+            var initialSection = document.getElementById('tests');
+            showSection('tests');
+        });
+    </script>
+</body>
+{% endblock %}

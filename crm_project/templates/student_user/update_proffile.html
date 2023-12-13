@@ -1,0 +1,11 @@
+<!-- update_profile.html -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="image">Update Image:</label>
+    <input type="file" name="image">
+
+    <label for="resume">Update Resume:</label>
+    <input type="file" name="resume">
+
+    <button type="submit">Update Profile</button>
+</form>

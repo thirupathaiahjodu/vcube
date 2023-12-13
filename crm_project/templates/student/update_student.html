@@ -1,0 +1,12 @@
+  
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Edit Student - {{ form.instance.name }}</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Student</button>
+  </form>
+  <a href="{% url 'get_all_students' batch_number=batch_number %}">Back to Student Detail</a>
+{% endblock %}

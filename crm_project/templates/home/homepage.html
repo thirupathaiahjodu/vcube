@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>V cube</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+        crossorigin="anonymous"
+    />
+    <link rel="icon" href="https://www.vcubesoftsolutions.com/wp-content/uploads/2020/10/V-CUBE-Logo-4-scaled-e1636039304265.jpg" type="image/png" />
+    <style>
+        .scrolling-wrapper {
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+        }
+        .course-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            min-width: 200px;
+            max-width: 300px;
+            border: 1px solid #ccc;
+        }
+        #ol ol{
+            margin-top: 20px;
+            color:black;
+        }
+        .wider-card {
+            min-width: 300px;
+            max-width: 400px;
+            min-height: 250px;
+        }
+</style>
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
+    
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary-text-light bg-lprimary" data-bs-theme="bg-dark"
+            style="background-color: gold;">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#"><img
+                        src="https://www.vcubesoftsolutions.com/wp-content/uploads/2020/10/V-CUBE-Logo-4-scaled-e1636039304265.jpg"
+                        alt="" style="width: 20%; height: 10%" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 80%;height: 100%;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="float:left;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">ABOUT</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                COURSES
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="">PYTHON</a></li>
+                                <li><a class="dropdown-item" href="">JAVA</a></li>
+                                <li><a class="dropdown-item" href="#">AWS</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="">VIEW MORE</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="">CLIK FOR FREE DEMO</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">CONTACT</a>
+                        </li>
+                        <li class="nav-item" style="width: 150px;">
+                            <a class="nav-link" href="">OUR ACTIVITY</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login' %}" class="btn btn-primary btn-sm-4 " style="margin-right: 20px;">Login</a>
+                        </li>
+
+                    </ul>
+                    {% block search %}
+                    <form class="d-flex" role="search" method="post" action="">
+                        {% csrf_token %}
+                        <input class="form-control me-2" type="search" name="word" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                    {% endblock %}
+                    
+                </div>
+            </div>
+        </nav>
+ 
+    {% block content %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+        <div class="container-fluid" style="background-image: url(https://t3.ftcdn.net/jpg/01/29/27/68/360_F_129276875_EdiO8jSL1QCl8wtfxA140Sjpf3UeBPYG.jpg);">
+            <div class="row">
+                <div class="col-4" >
+                    <img src="https://www.vcubesoftsolutions.com/wp-content/uploads/2021/11/download-1024x724.jpg"
+                        alt="" style="height: 400px;width: 400px; margin-top: 10px;">
+                </div>
+                <div class="col-4">
+                    <div class="elementor-widget-container">
+                        <style>
+                            /*! elementor - v3.10.1 - 17-01-2023 */
+                            .elementor-heading-title {
+                                padding: 0;
+                                margin: 0;
+                                line-height: 1
+                            }
+
+                            .elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {
+                                color: inherit;
+                                font-size: inherit;
+                                line-height: inherit
+                            }
+
+                            .elementor-widget-heading .elementor-heading-title.elementor-size-small {
+                                font-size: 15px
+                            }
+
+                            .elementor-widget-heading .elementor-heading-title.elementor-size-medium {
+                                font-size: 19px
+                            }
+
+                            .elementor-widget-heading .elementor-heading-title.elementor-size-large {
+                                font-size: 29px
+                            }
+
+                            .elementor-widget-heading .elementor-heading-title.elementor-size-xl {
+                                font-size: 39px
+                            }
+
+                            .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
+                                font-size: 59px
+                            }
+                        </style>
+                        <h4 class="elementor-heading-title elementor-size-default" style="font-family:Calibri Light; position:static;margin-top: 100px;">THE  KEY  IS  NOT  THE  WILL  TO  WIN.  EVERYBODY  HAS  THAT.&ensp; IT  IS  THE  WILL  TO  PREPARE  TO  WIN  THAT  IS  IMPORTANT </h4>
+                    </div>
+                </div>
+                <div class="col-4" style="outline: 50%; margin-top: 20px; ">
+                    {% block main %}
+
+                    {% endblock %}
+                </div>
+            </div>
+            <br>
+        </form>
+        
+            <div class="container-fluid">
+                <div class="row" style="padding-left: 100px;padding-right: 100px;">
+                    <h1 class="btn btn-success">RECENTLY PLACED STUDENTS</h1>
+                    <div class="col-12" >
+                        <div class="scrolling-wrapper">
+                            {% for obj in passout %}
+                            <div class="card course-card" style="width: 18rem;">
+                                <img src="" alt="" class="card-img-top" style="height: 150px; object-fit: contain;">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text"><label>Company:</label> </p>
+                                    <p class="card-text"><label>Package:</label> </p>
+                                    <p class="card-text"><label>Course:</label> </p>
+                                </div>                                
+                            </div>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- New Container Fluid for Course Boxes -->
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="container-fluid" >
+                    <div class="row"style="padding-left: 100px;padding-right: 100px;">
+                        <h1 class="btn btn-primary">Courses Of Vcube</h1>
+                        <div class="col-12" >
+                            <div class="scrolling-wrapper">
+                                {% for course in courses %}
+                                <div class="card course-card" style="width: 18rem;">
+                                    <img src="" alt="" class="card-img-top" style="height: 150px; object-fit: contain;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"></h5>                                        
+                                        <p class="card-text text-truncate"></p>
+                                        <!-- Add other course details here -->
+                                        <div class="card-footer">
+                                            <a href="" class="card-link">Learn More</a>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                        </div>
+                        <h1 class=" btn btn-primary"><a class="dropdown-item" href="">VIEW MORE</a></h1>
+                    </div>
+                </div>
+            
+
+            <hr>
+            <section id="scroll">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="img-fluid rounded-circle" src="https://d1fdloi71mui9q.cloudfront.net/lp3RTh22TimXgezp93dX_0001-31514908032.png" alt="..." /></div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1" style="color: rgb(38, 22, 22);" >
+                            <div class="p-5">
+                                <h2 class="display-4"> What we do in Vcube...</h2>
+                                <p>
+                                
+                                    V CUBE Software Solutions Pvt.Ltd offers you the greatest available serivces which are decsribed below
+                                    
+                                    Live classes,
+                                    
+                                    24/7 Access,
+                                    
+                                    Every projects,
+                                    
+                                    One on one mentorship, 
+                                    
+                                    Guest lectures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Content section 2-->
+            <section>
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="p-5"><img class="img-fluid rounded-circle" src="https://www.vcubesoftsolutions.com/wp-content/uploads/2021/11/download-1536x1086.jpg" alt="..." /></div>
+                        </div>
+                        <div class="col-lg-6" style="color: rgb(30, 27, 27);" >
+                            <div class="p-5">
+                                <h2 class="display-4">What we're about?</h2>
+                                <p>
+                                    V CUBE SOFTWARE SOLUTIONS PVT.LTD, is an institute that caters to the needs of students, businessmen and freelancers wanting to learn, improve, explore and soar in their careers. Our corporate office is located in Kukatpally, Hyderabad, India and our training centres are in Kukatpally and Ameerpet, Hyderabad, India. V CUBE Software Solutions Pvt.Ltd offers online information  technology courses, online computer programming classes, and starting information technology courses. Take advantage of both online and offline resources. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Content section 3-->
+            <section>
+                <div class="container-fluid">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="img-fluid rounded-circle" src="https://www.vcubesoftsolutions.com/wp-content/uploads/2021/11/training.jpg" alt="..." /></div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5" style="color: rgb(29, 25, 25);"" >
+                                <h2 class="display-4" > OUR SERVICE</h2>
+                                <p>
+                                
+                                    We offer high-quality training from industry experts in a variety of technologies to suit candidates with various academic backgrounds.The training is appropriate for all aspiring IT professionals and is provided by an experienced faculty team.We have seasoned instructors who can help professionals improve their technology skills for day-to-day tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="row" style="background-color: #f76e6e;height: 450px;">
+                <div class="col-sm-4">
+                    
+                    <ol id="ol" style="font-size:x-large;color: #252525;position: relative;margin-left: 80px;margin-top: 30px; ">
+                        <ol> Home</ol> 
+                        <ol>About</ol> 
+                        <ol>Courses</ol>
+                        <ol> Blog</ol> 
+                        <ol>Privacy Policy</ol> 
+                        <ol>Interview Questions</ol> 
+                        <ol>Contact</ol> 
+                    </ol>
+                </div>
+                <div class="col-sm-4 text-white text-light" style="font-size: x-large;">
+                
+                    <ol> V CUBE Software Solutions Pvt. </ol>
+                    <ol> Ltd. second floor,above </ol>
+                    <ol> Raymond’s clothing store,</ol>
+                    <ol> KPHB Phase 1 Kukatpally, Hyderabad, </ol>
+                    <ol>Telangana 500072</ol>
+                    <ol> Contact us :</ol>
+                    <ol>+917675070124/ +919059456742</ol> 
+                </div>
+                <div class="col-sm-4 ">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.MVZVYxnHQU0iQBiRM9t5GgHaFP&pid=Api&P=0&h=180" alt="" width="400px" height="400px " style="margin-top: 20px; margin-right: 15px; border-radius: 20px;">
+                </div>
+                
+            </div>
+        </div>
+    {% endblock %}
+                <!-- Footer-->
+            <footer class="py-5 bg-black">
+                <div class="container px-5"><p class="m-0 text-center text-white small">All Rights &copy; vcubesoftsolutions 2023</p></div>
+            </footer>
+            <!-- Bootstrap core JS-->
+    </body>
+</html>

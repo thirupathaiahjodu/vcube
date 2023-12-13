@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ student.name }}</h2>
+  <p>Email: {{ student.email }}</p>
+  <p>Mobile Number: {{ student.mobile_number }}</p>
+  <p>Gender: {{ student.get_gender_display }}</p>
+  <p>Graduation: {{ student.graduation }}</p>
+  <p>Course: {{ student.course.course_name }}</p>
+  <p>Batch: {{ student.batch.batch_number }}</p>
+  <p>Created Date: {{ student.created_date }}</p>
+  <p><a href="{% url 'update_student' student.id %}">Edit</a> | <a href="{% url 'delete_student' student.id %}">Delete</a></p>
+{% endblock %}

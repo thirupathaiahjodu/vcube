@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Add this CSS to your existing stylesheet or create a new one */
+
+.create-batch-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.create-batch-form {
+  margin-bottom: 20px;
+}
+
+.save-batch-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-batch-btn:hover {
+  background-color: #45a049;
+}
+
+.back-link {
+  display: block;
+  margin-top: 10px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.upload-student-data-heading {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.upload-data-btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-data-btn:hover {
+  background-color: #2980b9;
+}
+
+</style>
+  <div class="create-batch-container">
+    <h2>Create Batch</h2>
+    <form class="create-batch-form" method="post" action="{% url 'create_batch' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="save-batch-btn" type="submit">Save Batch</button>
+    </form>
+    <a class="back-link" href="{% url 'get_all_batches' %}">Back to Batch List</a>
+    <h2 class="upload-student-data-heading">
+      <a class="upload-student-data-link" href="{% url 'upload_student_data' %}">
+        <b><button class="upload-data-btn">Upload Student Data by Excel File</button></b>
+      </a>
+    </h2>
+  </div>
+{% endblock %}

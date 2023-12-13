@@ -1,0 +1,8 @@
+<!-- trainer_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ trainer.name }} - {{ trainer.specialization }}</h2>
+  <p><a href="{% url 'update_trainer' trainer.id %}">Edit</a> | <a href="{% url 'delete_trainer' trainer.id %}">Delete</a></p>
+{% endblock %}

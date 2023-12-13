@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Batches</h2>
+    
+    <div class="card">
+      <div class="card-body">
+        <ul class="list-group">
+          {% for batch in batches %}
+            <li class="list-group-item">
+              <h5>Batch  &ensp; :{{ batch.batch_number }}</h5>
+              <p>Course: {{ batch.course }}</p>
+              <a href="{% url 'batch_detail' batch_id=batch.pk %}" class="btn btn-primary">Details</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="text-center mt-4">
+      <a href="{% url 'create_batch' %}" class="btn btn-outline-success">Create Batch</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .container {
+    max-width: 600px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+  }
+
+  .btn-outline-success:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+</style>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Create Course</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <form method="post" action="{% url 'create_course' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.course_name.label_tag }}
+            {{ form.course_name }}
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.course_id.label_tag }}
+            {{ form.course_id }}
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.course_details.label_tag }}
+            {{ form.course_details }}
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.key_features.label_tag }}
+            {{ form.key_features }}
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="form-group">
+            {{ form.trainer.label_tag }}
+            {{ form.trainer }}
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Save Course</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="{% url 'get_all_courses' %}" class="btn btn-outline-success">Back to Course List</a>
+  </div>
+</div>
+
+{% endblock %}

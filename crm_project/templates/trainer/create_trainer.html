@@ -1,0 +1,63 @@
+<!-- create_trainer.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Add this CSS to your existing stylesheet or create a new one */
+
+  .trainer-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .trainer-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trainer-form label {
+    margin-bottom: 8px;
+  }
+
+  .trainer-form input,
+  .trainer-form select {
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .trainer-form button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .trainer-form button:hover {
+    background-color: #45a049;
+  }
+
+  .back-link {
+    margin-top: 20px;
+    display: block;
+    color: #3498db;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+
+  }
+
+</style>
+  <div class="trainer-form-container">
+    <h2>Create Trainer</h2>
+    <form class="trainer-form" method="post" action="{% url 'create_trainer' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save Trainer</button>
+    </form>
+    <a class="back-link" href="{% url 'get_all_trainers' %}">Back to Trainer List</a>
+  </div>
+{% endblock %}

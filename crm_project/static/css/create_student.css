@@ -1,0 +1,100 @@
+body {
+    font-family: 'Arial', sans-serif; /* Set a default font family */
+    background-color: #f8f9fa; /* Set a light background color */
+    color: #495057; /* Set a default text color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.container {
+    max-width: 1200px; /* Set a maximum width for content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px; /* Add padding to the container */
+}
+
+.section-link {
+    margin-right: 20px; /* Adjust as needed */
+    text-decoration: none;
+    color: black; /* Adjust link color */
+}
+
+.section-link {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold; /* Make section links bold */
+}
+
+.card {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #1878ff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-img {
+    text-align: center;
+}
+
+.card-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card-body {
+    color: #495057;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.table th, .table td {
+    padding: 12px;
+    border: 1px solid #ced4da;
+    text-align: left;
+}
+
+.table th {
+    background-color: #98e8f4; /* Light blue background */
+    color: #394d63; /* Dark blue text color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.text-center {
+    text-align: center;
+}
+.test-attendance,
+.lab-attendance,
+.soft-skills-stats,
+.interview-attendance,
+.attendance-attendance {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #28a745; /* Green color for positive */
+}
+
+.no-tests {
+    color: #dc3545; /* Red color for negative */
+}

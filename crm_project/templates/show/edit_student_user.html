@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Edit Student Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <!-- Generate URL for the student details page -->
+      <a href="{% url 'student_detailss' student_id=student.id %}">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

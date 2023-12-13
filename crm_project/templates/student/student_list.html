@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Students</h2>
+    
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Batch</th>
+              <th>Actions</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for student in students %}
+              <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.batch }}</td>
+
+                <td>
+                  <a href="{% url 'get_student_by_id' student.id %}" class="btn btn-primary">Details</a>
+                  <form action="{% url 'add_user' %}" method="post" style="display: inline-block;">
+                    {% csrf_token %}
+                    <input type="hidden" name="record_id" value="{{ student.id }}">
+                    <button type="submit" class="btn btn-success ml-2">Add</button>
+                  </form>
+                </td>
+                <td>{{student.status}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-12 mt-4 text-center">
+      <h2 class="mb-2 ">
+        <a class="text-decoration-none" href="{% url 'upload_student_data' %}">
+          <button class="btn btn-info">Upload </button>&ensp;&ensp;Student Data by Excel File
+        </a>
+      </h2>
+    </div>
+    
+    
+    
+    <div class="text-center mt-4">
+      <a href="{% url 'create_student' %}" class="btn btn-outline-success">Create Student</a>
+    </div>
+  </div>
+{% endblock %}

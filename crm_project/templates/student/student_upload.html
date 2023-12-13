@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Upload Student Data</h2>
+  <form method="post" enctype="multipart/form-data" action="{% url 'upload_student_data' %}">
+    {% csrf_token %}
+    <label for="excel_file">Select Excel File:</label>
+    <input type="file" name="excel_file" accept=".xlsx, .xls" required>
+    <button type="submit">Upload</button>
+  </form>
+{% endblock %}
+
+
